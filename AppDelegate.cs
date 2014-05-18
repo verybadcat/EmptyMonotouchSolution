@@ -11,6 +11,7 @@ namespace EmptyMonotouchSolution
   // application events from iOS.
   [Register ("AppDelegate")]
   public partial class AppDelegate : UIApplicationDelegate {
+    public RootViewController RootViewController {get;set;}
     // class-level declarations
     UIWindow window;
     //
@@ -23,7 +24,9 @@ namespace EmptyMonotouchSolution
     public override bool FinishedLaunching(UIApplication app, NSDictionary options) {
       // create a new window instance based on the screen size
       window = new UIWindow (UIScreen.MainScreen.Bounds);
-      window.RootViewController = new RootViewController ();
+      RootViewController rvc = new RootViewController ();
+      this.RootViewController = rvc;
+      window.RootViewController = rvc;
       window.MakeKeyAndVisible ();
       
       return true;
